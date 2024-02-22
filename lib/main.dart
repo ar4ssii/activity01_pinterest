@@ -13,143 +13,106 @@ void main() {
 }
 
 class PinterestHomepage extends StatefulWidget {
-  const PinterestHomepage({super.key});
-
   @override
-  State<PinterestHomepage> createState() => _PinterestHomepageState();
+  _PinterestHomepageState createState() => _PinterestHomepageState();
 }
 
 class _PinterestHomepageState extends State<PinterestHomepage> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Pinterest",
-          style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-        ),
+        title: Text('Pinterest'),
+        elevation: 0, // Remove app bar shadow
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: Image.network(
-                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
-                            ),
-                          ),
-                        ),
-                        Text("Image 1."),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: Image.network(
-                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
-                            ),
-                          ),
-                        ),
-                        Text("Image 2"),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: Image.network(
-                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
-                            ),
-                          ),
-                        ),
-                        Text("Image 3"),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: Image.network(
-                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
-                            ),
-                          ),
-                        ),
-                        Text("Image 4"),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: Image.network(
-                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
-                            ),
-                          ),
-                        ),
-                        Text("Image 5"),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: Image.network(
-                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
-                            ),
-                          ),
-                        ),
-                        Text("Image 6"),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < 600) {
+            // For smaller screens (phones)
+            return _buildMobileLayout();
+          } else {
+            // For larger screens (tablets, PCs)
+            return _buildDesktopLayout();
+          }
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home,color: Colors.black87),
+            label: '',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search,color: Colors.black87),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message, color: Colors.black87),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle, color: Colors.black87),
+            label: '',
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMobileLayout() {
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
+      ),
+      itemCount: 20,
+      itemBuilder: (context, index) => _buildItem(index),
+    );
+  }
+
+  Widget _buildDesktopLayout() {
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 4,
+        crossAxisSpacing: 8.0,
+        mainAxisSpacing: 8.0,
+      ),
+      itemCount: 20,
+      itemBuilder: (context, index) => _buildItem(index),
+    );
+  }
+
+  Widget _buildItem(int index) {
+    return Container(
+      margin: EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: 120, // Adjust the height of the image container
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16.0),
+              image: DecorationImage(
+                image: NetworkImage(
+                  'https://placekitten.com/200/200?image=$index', // Replace with your image URL
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(height: 8.0), // Add spacing between image and text
+          Text(
+            'Item $index',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16.0,
+            ),
+          ),
+        ],
       ),
     );
   }
 }
-
