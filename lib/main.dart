@@ -35,6 +35,38 @@ class _PinterestHomepageState extends State<PinterestHomepage> {
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+
+                  children: [
+                    Text(
+                      "ALL",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0)
+                    ),
+                    SizedBox(width: 10.0),
+                    Text(
+                      "Album 1",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                    ),
+                    SizedBox(width: 10.0),
+                    Text(
+                      "Album 2",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                    ),
+                  SizedBox(width: 10.0),
+                  Text(
+                      "Album 3",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                  ),
+                    SizedBox(width: 10.0),
+                    Text(
+                      "Album 4",
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+                    ),
+                  ],
+                ),
+              ),
               Row(
                 children: [
                   Expanded(
