@@ -78,7 +78,7 @@ class _PinterestHomepageState extends State<PinterestHomepage> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.network(
                               "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
+                              height: 250,
                             ),
                           ),
                         ),
@@ -95,11 +95,33 @@ class _PinterestHomepageState extends State<PinterestHomepage> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.network(
                               "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
+                              height: 250,
                             ),
                           ),
                         ),
                         Text("Image 2"),
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.network(
+                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
+                              height: 250,
+                            ),
+                          ),
+                        ),
+                        Text("Image 3"),
                       ],
                     ),
                   ),
@@ -112,11 +134,50 @@ class _PinterestHomepageState extends State<PinterestHomepage> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.network(
                               "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
+                              height: 250,
                             ),
                           ),
                         ),
-                        Text("Image 3"),
+                        Text("Image 4"),
+                      ],
+                    ),
+                  ),
+
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.network(
+                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
+                              height: 250,
+                            ),
+                          ),
+                        ),
+                        Text("Image 5."),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15.0),
+                            child: Image.network(
+                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
+                              height: 250,
+                            ),
+                          ),
+                        ),
+                        Text("Image 6"),
                       ],
                     ),
                   ),
@@ -133,11 +194,11 @@ class _PinterestHomepageState extends State<PinterestHomepage> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.network(
                               "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
+                              height: 250,
                             ),
                           ),
                         ),
-                        Text("Image 4"),
+                        Text("Image 7."),
                       ],
                     ),
                   ),
@@ -150,28 +211,11 @@ class _PinterestHomepageState extends State<PinterestHomepage> {
                             borderRadius: BorderRadius.circular(15.0),
                             child: Image.network(
                               "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
+                              height: 250,
                             ),
                           ),
                         ),
-                        Text("Image 5"),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15.0),
-                            child: Image.network(
-                              "https://images.pexels.com/photos/2071882/pexels-photo-2071882.jpeg?cs=srgb&dl=pexels-wojciech-kumpicki-2071882.jpg&fm=jpg",
-                              height: 500,
-                            ),
-                          ),
-                        ),
-                        Text("Image 6"),
+                        Text("Image 8"),
                       ],
                     ),
                   ),
