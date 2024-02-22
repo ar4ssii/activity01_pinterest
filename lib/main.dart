@@ -12,7 +12,14 @@ void main() {
   );
 }
 
-class PinterestHomepage extends StatelessWidget {
+class PinterestHomepage extends StatefulWidget {
+  @override
+  _PinterestHomepageState createState() => _PinterestHomepageState();
+}
+
+class _PinterestHomepageState extends State<PinterestHomepage> {
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +38,37 @@ class PinterestHomepage extends StatelessWidget {
           }
         },
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: '',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.black, // Set the color for the selected item
+        unselectedItemColor: Colors.grey, // Set the color for unselected items
+        onTap: _onItemTapped,
+      ),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   Widget _buildMobileLayout() {
@@ -88,7 +125,4 @@ class PinterestHomepage extends StatelessWidget {
       ),
     );
   }
-
-
-
 }
